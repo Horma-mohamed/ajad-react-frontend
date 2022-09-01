@@ -82,8 +82,8 @@ export default function Header({page}){
                 <NavLink to='/gallery' exact ><div className=" text-center pl-2"     ><span id='menuitem'  className={`${fixed?'text-gray-700':page=='home'?'text-gray-50':'text-gray-500'}  px-2 py-2  text-[15px] font-[500]  relative before:absolute before:-bottom-1 before:w-1.5 before:h-1.5 before:rounded-full before:opacity-0 before:bg-orange-400  before:transform before:duration-500 hover:before:opacity-100 before:left-[50%]  ${page==='gallery'?'before:opacity-100':''} text-center ` }>Gallery</span></div></NavLink>
                 <NavLink to='/contact' exact ><div className=" text-center pl-2"     ><span id='menuitem'  className={`${fixed?'text-gray-700':page=='home'?'text-gray-50':'text-gray-500'}  px-2 py-2  text-[15px] font-[500]  relative before:absolute before:-bottom-1 before:w-1.5 before:h-1.5 before:rounded-full before:opacity-0 before:bg-orange-400  before:transform before:duration-500 hover:before:opacity-100 before:left-[50%]  ${page==='contact'?'before:opacity-100':''} text-center ` }> Contact</span></div></NavLink>
             </div>
-            <a target={'__blank'}  href="https://donorbox.org/ajad" className={`   fixed top-20 right-0 rounded-l-full lg:top-0 custom-dbox-popup md:relative group  bg-orange-4000 border-[1.6px] ${fixed?'border-orange-400':page=='home'?'lg:border-white  border-orange-400':'border-orange-400'} border-orange-400   flex justify-center space-x-2 lg:px-2 py-2 px-2  items-center lg:rounded-full  text-gray-00 lg:text-xl sm:text-sm hover:bg-orange-400 hover:border-orange-400 hover:text-white text-gray-50 lg:text-gray-700 lg:  lg:hover:text-gray-50 transform duration-200    `}>
-                <BiDonateHeart className={`text-gray-5 ${fixed?'text-orange-400':page=='home'?'lg:text-white text-orange-400 ':'text-orange-400'} group-hover:text-white`} /> 
+            <a target={'__blank'}  href="https://donorbox.org/ajad" className={`   fixed top-28 right-0  rounded-l-full lg:top-0 custom-dbox-popup md:static group  bg-orange-4000 border-[1.6px] ${fixed?'border-orange-400 lg:bg-transparent bg-orange-400':page=='home'?'lg:border-white  border-orange-400 lg:bg-transparent bg-orange-400':'border-orange-400 lg:bg-transparent bg-orange-400'} border-orange-400   flex justify-center space-x-2 lg:px-2 py-2 px-2  items-center md:rounded-full  text-gray-00 lg:text-xl sm:text-sm hover:bg-orange-400 hover:border-orange-400 hover:text-white text-gray-50 lg:text-gray-700 lg:  lg:hover:text-gray-50 transform duration-200    `}>
+                <BiDonateHeart className={`text-gray-5 ${fixed?'lg:text-orange-400 text-white ':page=='home'?'lg:text-white text-orange-400 ':'lg:text-orange-400 text-white'} group-hover:text-white`} /> 
                 <span className='text-[16px] text-orange-400 group-hover:text-white hidden '>Make a Donation</span>
                 
             </a>
@@ -99,8 +99,8 @@ export default function Header({page}){
                         }
                     </div>
             <div onClick={()=>setHam(!Ham)} className={`select-none cursor-pointer md:hidden group flex items-center w-8 h-8 bg-gray-10 rounded-lg relative  before:absolute  ${Ham?'before:translate-y-0 before:rotate-45 after:translate-y-0 after:rotate-[135deg] ':'after:translate-y-2 before:-translate-y-2'}  before:transform before:duration-300 before:left-0 before:w-full before:h-1 before:rounded-full before:bg-gray-600  after:absolute   after:left-0 after:w-full after:h-1 after:bg-gray-600  after:transform after:duration-300 after:rounded-full`} >
-            <span className={`w-full h-1 rounded-l-full bg-gray-600 ${Ham?'-translate-x-28 opacity-0 hidden':''} transform duration-300 `}></span>
-            <span className={`w-full h-1 rounded-r-full bg-gray-600 ${Ham?'translate-x-28 opacity-0 hidden':''} transform duration-300 `}></span>
+            <span className={`w-full h-1 rounded-l-full bg-gray-600 ${Ham?'-translate-x-28 opacity-0':''} transform duration-300 `}></span>
+            <span className={`w-full h-1 rounded-r-full bg-gray-600 ${Ham?'translate-x-28 opacity-0':''} transform duration-300 `}></span>
             </div>
 
             

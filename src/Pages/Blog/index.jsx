@@ -93,7 +93,7 @@ export default function Blog(){
                          <p className="text-gray-400 p-2 space-x-4">
                              <span>{moment(headPost?.date).format("MMM Do YY") }</span> <span>{ readingTime(headPost.description).text}</span>
                          </p>
-                         <h1 className=" lg:w-[400px] p-2 leading-3 text-xl lg:text-5xl text-gray-700 font-semibold ">
+                         <h1 className=" lg:w-[400px] p-2  text-xl lg:text-5xl text-gray-700 font-semibold ">
                          {headPost.title}
                          </h1>
                          <p className="lg:w-[400px] text-lg text-gray-400 self- p-2">
