@@ -85,22 +85,24 @@ export default function Blog(){
                       
                  <div className="w-full pl-5 mt-6">
                     <h1 className="text-xl text-gray-600 font-bold pl-4 uppercase my-2">Featured</h1>
-                     <NavLink to={`/blog/${headPost.id}`}>
-                       <div className=" w-full h-[450px] bg-gray-00 p-4 lg:flex lg:space-x-4 lg:mb-0 mb-4 ">
-                        <img src={headPost?.Thumb} alt="" className="rounded-md w-full lg:w-[600px]" />
-                        <div className=" lg:h-full ">
-                        <p className="text-gray-400 p-2 space-x-4">
-                            <span>{moment(headPost?.date).format("MMM Do YY") }</span> <span>{ readingTime(headPost.description).text}</span>
-                        </p>
-                        <h1 className=" lg:w-[400px] p-2 leading-3 text-xl lg:text-5xl text-gray-700 font-semibold ">
-                        {headPost?.title}
-                        </h1>
-                        <p className="lg:w-[400px] text-lg text-gray-400 self- p-2">
-                                <div dangerouslySetInnerHTML={{__html:Slice(headPost?.description,0,200)}  }   />                     
-                                </p>
-                        </div>
-                        </div>
-                       </NavLink>
+                     {
+                        headPost?<NavLink to={`/blog/${headPost.id}`}>
+                        <div className=" w-full h-[450px] bg-gray-00 p-4 lg:flex lg:space-x-4 lg:mb-0 mb-4 ">
+                         <img src={headPost.Thumb} alt="" className="rounded-md w-full lg:w-[600px]" />
+                         <div className=" lg:h-full ">
+                         <p className="text-gray-400 p-2 space-x-4">
+                             <span>{moment(headPost?.date).format("MMM Do YY") }</span> <span>{ readingTime(headPost.description).text}</span>
+                         </p>
+                         <h1 className=" lg:w-[400px] p-2 leading-3 text-xl lg:text-5xl text-gray-700 font-semibold ">
+                         {headPost.title}
+                         </h1>
+                         <p className="lg:w-[400px] text-lg text-gray-400 self- p-2">
+                                 <div dangerouslySetInnerHTML={{__html:Slice(headPost?.description,0,200)}  }   />                     
+                                 </p>
+                         </div>
+                         </div>
+                        </NavLink>:''
+                     }
                        <Divder h='20'/>
                        <h1 className="text-xl text-gray-600 font-bold pl-4 uppercase my-2">INTRESTING TOPICS</h1>
                    <div className="flex  w-full flex-wrap gap-4 gap-y-10">   
