@@ -18,7 +18,7 @@ export default function ProgramsSection(){
     return(
         <div className='w-full pt-5 px-2 mt-20 '>
         <HeadingPage >
-            HOW DO WE HELP ? 
+            HOW DO WE HELP 
           </HeadingPage>
           <Divider/>
 
@@ -34,8 +34,10 @@ export default function ProgramsSection(){
                     <h1 className="text-2xl text-gray-700 font-semibold w-[90%]">
                       {program.name}
                     </h1>
+                    <img  src={program.icon} alt="" />
                     <div className="absolute top-6 right-4">
-                      <span className='text-2xl text-orange-600 font-mono font-bold'>#{i+1}</span>
+                      
+                      <span className='text-2xl text-orange-600 font-mono font-bold hidden'>#{i+1}</span>
                     </div>
                     <p className="text-md text-gray-700 text-opacity-60 mt-4 ">
                      <div className='' dangerouslySetInnerHTML={{__html:program.intro}}/>

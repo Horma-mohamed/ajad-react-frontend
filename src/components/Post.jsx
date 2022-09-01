@@ -2,6 +2,7 @@
 import { NavLink } from 'react-router-dom';
 import moment from 'moment'
 import { readingTime } from 'reading-time-estimator';
+import { AiFillRead } from 'react-icons/ai';
 export default function Posts({post}) {
   function scrollUp(i){
     window.scrollY = i || 0
@@ -13,8 +14,11 @@ export default function Posts({post}) {
 <a href={`/blog/${post.id}`} onClick={()=>scrollUp(0)}>
               
               <div className="w-full lg:w-[350px] p-4">
-                <div className="relative w-full h-40">
-                <img src={post.Thumb} className='rounded-md h-full w-full ' alt="" />
+                <div className="group relative w-full h-40">
+                  <div className="w-full h-full flex justify-center items-center absolute top-0 z-[-9999] group-hover:z-[99999] rounded-md bg-gray-800 bg-opacity-0 group-hover:bg-opacity-50 transform duration-300">
+                    <AiFillRead className='scale-0 transform duration-300 text-white group-hover:scale-[140%]'/>
+                  </div>
+                <img src={post.Thumb} className='rounded-md h-full w-full  ' alt="" />
                 
                 </div>
                 <p className="text-md text-gray-400 py-2 space-x-5">

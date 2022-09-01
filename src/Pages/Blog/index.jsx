@@ -27,9 +27,9 @@ export default function Blog(){
     //     searchIcon.style.transform= `translate3d(${e.clientX}px,${e.clientY}px,0)`
     // })
     useEffect(()=>{
-        //fetch("http://localhost:8000/api-auth/articls/")
+        //fetch("https://abdeli.pythonanywhere.com/api-auth/articls/")
         setLoading(true)
-        fetch(`http://localhost:8000/api-auth/articls/1`)
+        fetch(`https://abdeli.pythonanywhere.com/api-auth/articls/1`)
         .then((res)=>{
             return res.json()
         })
@@ -38,7 +38,7 @@ export default function Blog(){
             setHeadPost(data)
             
         })
-        fetch('http://localhost:8000/api-auth/articls/')
+        fetch('https://abdeli.pythonanywhere.com/api-auth/articls/')
         .then((res)=>{
             return res.json()
         })

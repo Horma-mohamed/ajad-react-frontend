@@ -52,16 +52,10 @@ export default function Post(){
           
         window.open(navUrl, '_blank');
       }
-    window.addEventListener('scroll',()=>{
-        if(window.scrollY>50){
-            control.start({opacity:1,y:0,transition:{duration:0.2}})
-        }else{
-            control.start({opacity:0,y:10,transition:{duration:0.2}})
-        }
-    })
+   
 
     useEffect(()=>{
-        fetch(`http://localhost:8000/api-auth/articls/${id}/`)
+        fetch(`https://abdeli.pythonanywhere.com/api-auth/articls/${id}/`)
         .then((res)=>{
             return res.json()
         })
@@ -78,11 +72,9 @@ export default function Post(){
     return(
         <div className="w-screen ">
             <Header page={'post'}/>
-            <motion.div onClick={()=>{window.scrollTo({top:0,behavior:'smooth'})}} initial={{opacity:0,y:-10}} animate={control} className="px-4 py-2 border cursor-pointer flex space-x-2 items-center hover:text-white hover:bg-orange-400 transform duration-200 rounded-full border-orange-400 text-orange-400 fixed bottom-20 right-10">
-               <span> Scroll To The Top</span> <BsArrowUp/>
-            </motion.div>
+
             <div className="w-full flex justify-center pb-14">
-<div className="lg:w-[50%] md:w-[75%] w-full  h-screen bg-slate-0 mt-20 relative ">
+<div className="lg:w-[50%] md:w-[75%] w-[90%]  h-screen bg-slate-0 mt-20 relative ">
     {/* <motion.div animate={shareListControl} className="space-y-5 hidden lg:block lg:fixed top-[40%] right-[12%]">
         <div onClick={()=>shareOnFacebook()} className="relative  group w-12 h-12 hover:bg-sky-700  border border-sky-700 rounded-full flex justify-center items-center">
             <RiFacebookFill className="text-xl text-sky-700 group-hover:text-white "/> 
@@ -123,24 +115,24 @@ export default function Post(){
         <span className="lg:text-md text-sm w-24 text-gray-500 italic  " >{readingTime(post.description).text}</span>
        </div>
     </div>
-    <div className="lg:mt-8 mt-5 font-karla text-justify text-md  text-gray-700 lg:pl-0 px-4 pr-4 lg:px-0 leading-8" dangerouslySetInnerHTML={{__html:post.description}}/>
+    <div className="lg:mt-8 mt-5 w-[] font-karla text-justify text-md  text-gray-700 lg:pl-0 px-4 pr-lg:px-0 leading-8" dangerouslySetInnerHTML={{__html:post.description}}/>
         
         <div className="w-full h-[1px] bg-gray-500 mb-5 mt-10"></div>
         <div className="w-full flex  items-center justify-between mb-10">
-            <div className="flex space-x-8 ">
-                <div className="text-md text-gray-500 flex space-x-2 items-center"> <BiTimeFive/> <i className="text-gray-600  underline-offset-1 mr-4">   {moment(post.date).format("MMM Do YY")}</i></div> <div className="text-md items-center text-gray-500 flex space-x-2 capitalize"> <FaUserAlt/> <i className="text-gray-600">{post?.author_name}</i></div>
+            <div className="flex md:space-x-8 space-x-4  ">
+                <div className="md:text-md text-sm  text-gray-500 flex space-x-2 items-center"> <BiTimeFive/> <i className="text-gray-600  underline-offset-1 mr-4">   {moment(post.date).format("MMM Do YY")}</i></div> <div className="text-md items-center text-gray-500 flex space-x-2 capitalize"> <FaUserAlt/> <i className="text-gray-600">{post?.author_name}</i></div>
             </div>
             <div className="flex items-center space-x-4">
                 <span className="p-1.5 border bg-slate-50 cursor-pointer rounded-md text-gray-600 flex items-center" >
                     <span className=" mr-2 "><FiExternalLink /></span>
-                   <span className="w-full text[10px]"> Copy link </span>
+                   <span className="w-full md:text-[10px] text-[8px]"> Copy link </span>
                 </span>
-                <div className="flex space-x-3 ">
-                    <span className="w-6 h-6 rounded-md border flex justify-center items-center hover:border-sky-800 hover:bg-sky-800 hover:text-white cursor-pointer text-gray-500"><RiFacebookFill/></span>
-                    <span className="w-6 h-6 rounded-md border flex justify-center items-center text-gray-500 hover:border-sky-600 hover:bg-sky-600 hover:text-white cursor-pointer"><ImLinkedin2/></span>
-                    <span className="w-6 h-6 rounded-md border flex justify-center items-center text-gray-500 hover:border-sky-500 hover:bg-sky-500 hover:text-white cursor-pointer"><BsTwitter/></span>
-                    <span className="w-6 h-6 rounded-md border flex justify-center items-center text-gray-500 hover:border-orange-400 hover:bg-orange-400 hover:text-white cursor-pointer"><FaRedditAlien/></span>
-                    <span className="w-6 h-6 rounded-md border flex justify-center items-center text-gray-500 hover:border-red-500 hover:bg-red-500 hover:text-white cursor-pointer"><BsYoutube/></span>
+                <div className="flex space-x-3">
+                    <span className="md:w-6 w-6  md:h-6 h-6  rounded-md border flex justify-center items-center hover:border-sky-800 hover:bg-sky-800 hover:text-white cursor-pointer text-gray-500"><RiFacebookFill/></span>
+                    <span className="md:w-6 w-6  md:h-6 h-6  rounded-md border flex justify-center items-center text-gray-500 hover:border-sky-600 hover:bg-sky-600 hover:text-white cursor-pointer"><ImLinkedin2/></span>
+                    <span className="md:w-6 w-6  md:h-6 h-6  rounded-md border flex justify-center items-center text-gray-500 hover:border-sky-500 hover:bg-sky-500 hover:text-white cursor-pointer"><BsTwitter/></span>
+                    <span className="md:w-6 w-6  md:h-6 h-6  rounded-md border flex justify-center items-center text-gray-500 hover:border-orange-400 hover:bg-orange-400 hover:text-white cursor-pointer"><FaRedditAlien/></span>
+                    <span className="md:w-6 w-6  md:h-6 h-6  rounded-md border flex justify-center items-center text-gray-500 hover:border-red-500 hover:bg-red-500 hover:text-white cursor-pointer"><BsYoutube/></span>
 
                 </div>
             </div>

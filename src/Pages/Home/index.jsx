@@ -44,6 +44,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { ImCancelCircle } from 'react-icons/im';
 import { FaTimes } from 'react-icons/fa';
 import { grayscale } from 'tailwindcss/defaultTheme';
+import CasesSection from '../../includes/CasesSection';
 
 function Home() {
   const control = useAnimation()
@@ -171,7 +172,7 @@ function Home() {
      <div className=" pt-0  pb-4 lg:flex lg:justify-center">
 
         <div className="  lg:w-[95vw] ">
-        <section className='w-full lg:h-screen lg:flex bg-gray-20     px-2'>
+        <section className='w-full lg:h-screen  bg-gray-20     px-2'>
          <div className=" w-full lg:w-[45%] relative  ">
          <h1 className=' font-source text-4xl  text-gray-600 font-semibold pt-4  lg:px-4 px-4 drop-shadow-md shadow-orange-400  ' >COMMITED FOR HELPING
 PEOPLE</h1>
@@ -182,58 +183,18 @@ AJAD was created in 1997 by a group of young Mauritanians with the aim of protec
 
 </p>
 
-          <a href='documents/docs/ajad_presentation.doc' download={true} className=" group mb-8 text-orange-500 font-semibold flex space-x-3 items-center mt-10 lg:-mt-10 lg:absolute bottom-40 left-5 hover:underline hover:text-orange-600 ">
+          <a href='documents/docs/ajad_presentation.doc' download={true} className=" group lg:mt-10 ml-4 mb-8 bg-transparent  text-orange-400 border border-orange-400 w-80 h-10 justify-center items-center rounded-full font-semibold flex space-x-3  mt-10   left-5 hover: hover:text-white hover:bg-orange-400 ">
             <span id='download' className='text-md font-semibold group-hover:translate-y-0 ' >DOWNLOAD AJAD PRESENTATION </span>
-            <motion.span  initial={{y:'-2px'}} animate={control}  transition={{yoyo:Infinity}}>
-              <BsArrowDownCircleFill />
+            <motion.span  initial={{y:'0'}} animate={control}  transition={{yoyo:Infinity}}>
+              <BsArrowDown />
               </motion.span>
           </a>
          </div>
 
-
+         
         </section>
         <ProgramsSection/>
-        <div className="w-full h- bg--400 mt-40  px-4 lg:px-4 ">
-        <HeadingPage>
-            STORIES FROM THE FIELD
-        </HeadingPage>
-        <ul className="w-[100%] flex flex-wrap gap-6 mt-10  ">
-
-      {
-        Cases().map((each)=>(
-          <li className=' cursor-pointer group w-80 relative rounded border bg-gray-0 hover:shadow-xl transform duration-300  overflow-'>
-            
-        <div className="w-w-ful h-56 ">
-          <img className='w-full h-full' src={each.Thumb} />
-        </div>
-
-        <div className="w-full px- py- bg-slate-0">
-          <h1 className="py-2 text-teal-600 px-2">{each.region}</h1>
-         <h1 className=" text-lg font-semibold font font-karla text-orange-500 uppercase px-2">
-                {each.title}
-          </h1>
-           {/* <div className="text-gray-500 text-md mt-6  " dangerouslySetInnerHTML={{__html:each.description.slice(0,250)}} /> */}
-        <p className="text-gray-500 text-md mt-3  px-2 ">{each.intro}</p>
-
-
-          <div className="w-full flex justify-center mt-10">
-
-
-            <div className="absolute text-center overflow-hidden right-0 top-0 w-10 group-hover:w-40 transform duration-500 flex group-hover:space-x-4 justify-center items-center h-10   rounded-bl-lg  bg-orange-400 group-hover:bg-orange-400 text-white">
-                        <span className='text-md transform -translate-x-80 font-semibold duration-700 group-hover:translate-x-0 absolute group-hover:static '>Read more</span>
-                        <BsArrowRight className='text-xl text-white group-hover:text-white '/>
-
-            </div>
-
-          </div>
-        </div>
-        
-        </li>
-        ))
-      }
-
-       </ul>
-        </div>
+          {Cases().length >0 ?<CasesSection/>:''}
         <div className="w-full h- bg--400 mt-40  px-4 lg:px-4 ">
         <HeadingPage >
             LATEST POSTS

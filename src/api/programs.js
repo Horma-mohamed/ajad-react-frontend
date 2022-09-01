@@ -3,7 +3,7 @@ import axios from "axios";
 export default ()=>{
     const [programs,setPrograms]= useState([])
     useEffect(()=>{
-        axios.get('http://localhost:8000/api-auth/programs/')
+        axios.get('https://abdeli.pythonanywhere.com/api-auth/programs/')
       .then((res)=>{
         return res.data
       })

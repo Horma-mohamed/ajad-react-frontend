@@ -3,7 +3,7 @@ import axios from "axios";
 export default ()=>{
     const [cases,setCases]= useState([])
     useEffect(()=>{
-        axios.get('http://localhost:8000/api-auth/cases/')
+        axios.get('https://abdeli.pythonanywhere.com/api-auth/cases/')
       .then((res)=>{
         return res.data
       })

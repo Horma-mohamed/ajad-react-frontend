@@ -147,3 +147,17 @@ code {
   width:100%;
 
 }
+
+.swiper-pagination-bullet{
+  width: 15px !important;
+  height: 4px !important;
+  border-radius: 25% !important;
+  transition: all ease-in 200ms ;
+}
+
+.swiper-pagination-bullet-active{
+  width: 20px !important;
+  height: 4px !important;
+  border-radius: 25% !important;
+  background-color: #fb923c !important;
+}

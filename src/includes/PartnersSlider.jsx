@@ -10,7 +10,7 @@ export default function PartnersSlider() {
              <div className='w-full pt-5 px-2 my-10 '>
        
           <HeadingPage>
-          OUR PARTNERS 
+          WE HAVE WORKED WITH 
           </HeadingPage>
           <div className='w-full flex justify-center '>
           <ul className="w-[80%] lg:w-[95%] flex  flex-wrap gap-4 space-y lg:space-y-0 lg:flex lg:space-x-4 mt-10">

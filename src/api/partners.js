@@ -3,7 +3,7 @@ import axios from "axios";
 export default ()=>{
     const [partners,setPartners]= useState([])
     useEffect(()=>{
-        axios.get('http://localhost:8000/api-auth/partners/')
+        axios.get('https://abdeli.pythonanywhere.com/api-auth/partners/')
       .then((res)=>{
         return res.data
       })
