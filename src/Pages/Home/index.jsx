@@ -183,8 +183,8 @@ AJAD was created in 1997 by a group of young Mauritanians with the aim of protec
 
 </p>
 
-          <a href='documents/docs/ajad_presentation.doc' download={true} className=" group lg:mt-10 ml-4 mb-8 bg-transparent  text-orange-400 border border-orange-400 w-80 h-10 justify-center items-center rounded-full font-semibold flex space-x-3  mt-10   left-5 hover: hover:text-white hover:bg-orange-400 ">
-            <span id='download' className='text-md font-semibold group-hover:translate-y-0 ' >DOWNLOAD AJAD PRESENTATION </span>
+          <a href='documents/docs/ajad_presentation.doc' download={true} className=" group lg:mt-10 ml-4 mb-8 bg-transparent  text-orange-400 border border-orange-400 w-72 lg:w-80 h-10 justify-center items-center rounded-full font-semibold flex space-x-3 px-2  mt-10   left-5 hover: hover:text-white hover:bg-orange-400 ">
+            <span id='download' className='lg:text-md text-sm font-semibold group-hover:translate-y-0 ' >DOWNLOAD AJAD PRESENTATION </span>
             <motion.span  initial={{y:'0'}} animate={control}  transition={{yoyo:Infinity}}>
               <BsArrowDown />
               </motion.span>
