@@ -98,7 +98,7 @@ export default function Header({page}){
                             ))
                         }
                     </div>
-            <button onClick={()=>setHam(!Ham)} className={` md:hidden group flex items-center w-8 h-8 bg-gray-10 rounded-lg relative  before:absolute  ${Ham?'before:translate-y-0 before:rotate-45 after:translate-y-0 after:rotate-[135deg] ':'after:translate-y-2 before:-translate-y-2'}  before:transform before:duration-300 before:left-0 before:w-full before:h-1 before:rounded-full before:bg-gray-600  after:absolute   after:left-0 after:w-full after:h-1 after:bg-gray-600  after:transform after:duration-300 after:rounded-full`} >
+            <button onClick={()=>setHam(!Ham)} className={`select-none md:hidden group flex items-center w-8 h-8 bg-gray-10 rounded-lg relative  before:absolute  ${Ham?'before:translate-y-0 before:rotate-45 after:translate-y-0 after:rotate-[135deg] ':'after:translate-y-2 before:-translate-y-2'}  before:transform before:duration-300 before:left-0 before:w-full before:h-1 before:rounded-full before:bg-gray-600  after:absolute   after:left-0 after:w-full after:h-1 after:bg-gray-600  after:transform after:duration-300 after:rounded-full`} >
             <span className={`w-full h-1 rounded-l-full bg-gray-600 ${Ham?'-translate-x-28 opacity-0':''} transform duration-300 `}></span>
             <span className={`w-full h-1 rounded-r-full bg-gray-600 ${Ham?'translate-x-28 opacity-0':''} transform duration-300 `}></span>
             </button>
