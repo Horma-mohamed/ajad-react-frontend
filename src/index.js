@@ -17,6 +17,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {motion} from 'framer-motion'
 import ScrollToUp from './includes/Elements/ScrollToUP';
+import GoogleTranslate from './includes/Elements/GoogleTranslate';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //root.classList.add('w-screen overflow-x-hidden')
 root.render(
@@ -26,6 +27,7 @@ root.render(
       <BrowserRouter> 
       {/* <Header/> */}
       <ScrollToUp/>
+      <GoogleTranslate/>
   <Routes>
     
     <Route index  element={<Home/>} />
