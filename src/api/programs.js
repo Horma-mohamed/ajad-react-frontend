@@ -3,7 +3,7 @@ import axios from "axios";
 export default ()=>{
     const [programs,setPrograms]= useState([])
     useEffect(()=>{
-        axios.get('https://abdeli.pythonanywhere.com/api-auth/programs/')
+        axios.get('https://moha4567878.pythonanywhere.com/api-auth/programs/')
       .then((res)=>{
         return res.data
       })

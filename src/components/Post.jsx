@@ -1,12 +1,19 @@
 
 import { NavLink } from 'react-router-dom';
 import moment from 'moment'
+import { formatDistance } from 'date-fns';
+import { ar,fr,enUS } from 'date-fns/locale';
 import { readingTime } from 'reading-time-estimator';
 import { AiFillRead } from 'react-icons/ai';
+import i18next from 'i18next';
+moment.locale('fr')
 export default function Posts({post}) {
   function scrollUp(i){
     window.scrollY = i || 0
   } 
+  const CurrentLang = i18next.language
+ 
+  
     return(
       
               
@@ -22,14 +29,14 @@ export default function Posts({post}) {
                 
                 </div>
                 <p className="text-md text-gray-400 py-2 space-x-5">
-                  <span>{moment(post.date).format("MMM Do YY") }</span>
-                  <span>{ readingTime(post.description).text}</span>
+                  <span>{formatDistance(new Date(post.date),new Date(),{locale:CurrentLang=='en'?enUS:CurrentLang=='fr'?fr:ar})}</span>
+                  <span>{ readingTime(post.description_en,).text}</span>
                 </p>
                 <h1 className="  text-xl font-semibold ">
-                  {post.title}
+                  {CurrentLang==='en'?post.title_en:CurrentLang=='fr'?post.title_fr:post.title_ar}
                 </h1>
                 <p className="text-md text-gray-400 py-2">
-                  <div dangerouslySetInnerHTML={{__html:post.description.substring(0,150)}}/>
+                  <div dangerouslySetInnerHTML={{__html:CurrentLang==='en'?post.description_en.substring(0,100)+" ...":CurrentLang==='fr'?post.description_fr.substring(0,100)+" ...":post.description_ar .substring(0,100)+" ..." }}/>
                 </p>
               </div>
               

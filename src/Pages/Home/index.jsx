@@ -45,6 +45,7 @@ import { ImCancelCircle } from 'react-icons/im';
 import { FaTimes } from 'react-icons/fa';
 import { grayscale } from 'tailwindcss/defaultTheme';
 import CasesSection from '../../includes/CasesSection';
+import {useTranslation} from 'react-i18next'
 
 function Home() {
   const control = useAnimation()
@@ -80,6 +81,7 @@ function Home() {
         return text
       }
   }
+  const {t} = useTranslation()
   return (
     <div className='relative '>
       <motion.div initial={{background:'transparent',zIndex:0}} animate={controlModalBackgoround} className="w-screen h-screen bg-gray-800 bg-opacity-40 fixed z-[99999999999] flex justify-center items-center">
@@ -129,33 +131,8 @@ function Home() {
       </motion.div>
   <Header page={'home'}/>
   <div className="w-full h-24 lg:hidden"></div>
-  <div className="lg:w-[50%] w-full z-[-99]   overflow-hidden hidden items-center  lg:h-screen lg:absolute right-0 top-0  bg-gray-50 bg-opacity-    lg:block" >
-     {/* <Swiper
-                            spaceBetween={0}
-                            centeredSlides={true}
-                            loop= {true}
-                            autoplay={{
-                            delay: 2500,
-
-                            disableOnInteraction: false,
-                            }}
-                            pagination={{
-                            clickable: true,
-                            }}
-                            navigation={true}
-
-                            modules={[Autoplay, Pagination, Navigation]}
-                            className="mySwiper w-full h-full "
-                            >
-                              <SwiperSlide className='w-full h-full'>
-                              <div  >
-                                <img src='img/photos/ajad1.jpg'  className=' object-cover   relative z-[] ' />
-                             </div>
-
-                              </SwiperSlide>
-
-
-          </Swiper> */}
+  <div className={`lg:w-[50%] w-full z-[-99]   overflow-hidden hidden items-center  lg:h-screen lg:absolute ${document.dir==='rtl'?'left-0':'right-0'} top-0  bg-gray-50 bg-opacity-    lg:block`} >
+     
           <div className="w-full h-full relative">
             <div className="top-0 w-full h-full absolute z-[40] lg:bg-gray-900 bg-gray-500 lg:bg-opacity-30 bg-opacity-30">
 
@@ -174,17 +151,14 @@ function Home() {
         <div className="  lg:w-[95vw] ">
         <section className='w-full lg:h-screen  bg-gray-20     px-2'>
          <div className=" w-full lg:w-[45%] relative  ">
-         <h1 className=' font-source text-4xl  text-gray-600 font-semibold pt-4  lg:px-4 px-4 drop-shadow-md shadow-orange-400  ' >COMMITED FOR HELPING
-PEOPLE</h1>
+         <h1 className=' font-source text-4xl  text-gray-600 font-semibold pt-4  lg:px-4 px-4 drop-shadow-md shadow-orange-400  ' >{t("AJAD_HEAD_HERO")}</h1>
 
           <p className="font-karla mt-6 text-[#282523] text-lg text-justify px-4 lg:px-4 ">
-The non-governmental organization Association Jeunesse Action Développement (AJAD) is a Mauritanian non-profit voluntary development organization.
-AJAD was created in 1997 by a group of young Mauritanians with the aim of protecting the national youth from the various temptations that can lead them to debauchery and marginalization and to bring the youth to participate effectively and efficiently in the national construction effort by subscribing to actions to fight against poverty, food insecurity and the degradation of social services (education and health).
-
-</p>
+            {t('AJAD_SHORT_INTRO')}
+          </p>
 
           <a href='documents/docs/ajad_presentation.doc' download={true} className=" group lg:mt-10 ml-4 mb-8 bg-transparent  text-orange-400 border border-orange-400 w-72 lg:w-80 h-10 justify-center items-center rounded-full font-semibold flex space-x-3 px-2  mt-10   left-5 hover: hover:text-white hover:bg-orange-400 ">
-            <span id='download' className='lg:text-md text-sm font-semibold group-hover:translate-y-0 ' >DOWNLOAD AJAD PRESENTATION </span>
+            <span id='download' className='lg:text-md text-sm font-semibold group-hover:translate-y-0 ' > {t("DOWNLOAD_PRESENTATION")}</span>
             <motion.span  initial={{y:'0'}} animate={control}  transition={{yoyo:Infinity}}>
               <BsArrowDown />
               </motion.span>
@@ -197,7 +171,7 @@ AJAD was created in 1997 by a group of young Mauritanians with the aim of protec
           {Cases().length >0 ?<CasesSection/>:''}
         <div className="w-full h- bg--400 mt-40  px-4 lg:px-4 ">
         <HeadingPage >
-            LATEST POSTS
+        {t("LATEST_POSTS")}
           </HeadingPage>
 
           <ul className="p- pt-8 lg:space-y-0 lg:flex lg:flex-wrap lg:gap-8  ">

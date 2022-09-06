@@ -1,13 +1,15 @@
+import { useTranslation } from "react-i18next";
 import { BsArrowRight } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import cases from "../api/cases";
 import HeadingPage from "./Elements/HeadingPage";
 
 export default function CasesSection(){
+    const {t} = useTranslation()
     return(
         <div className="w-full h- bg--400 mt-40  px-4 lg:px-4 ">
         <HeadingPage>
-            STORIES FROM THE FIELD
+           {t("CASES_FROM_THE_FIELD")}
         </HeadingPage>
         <ul className="w-[100%] flex flex-wrap gap-6 mt-10  ">
 

@@ -14,9 +14,11 @@ import {FiExternalLink} from 'react-icons/fi'
 import {FaRedditAlien, FaUserAlt} from 'react-icons/fa'
 import {motion,useAnimation,useScroll} from 'framer-motion'
 import { BiArrowToTop, BiTimeFive } from "react-icons/bi";
+import i18next from "i18next";
 export default function Post(){
     
     //const [posts,setPosts] = useState()
+    const CurrentLanguage = i18next.language
     const [post,setPost] = useState({})
     const {id} = useParams()
     const form  = useRef()
@@ -55,7 +57,7 @@ export default function Post(){
    
 
     useEffect(()=>{
-        fetch(`https://abdeli.pythonanywhere.com/api-auth/articls/${id}/`)
+        fetch(`https://moha4567878.pythonanywhere.com/api-auth/articls/${id}/`)
         .then((res)=>{
             return res.json()
         })
@@ -96,7 +98,7 @@ export default function Post(){
     </motion.div> */}
     
 <h1 className="lg:text-4xl p-2  text-3xl font-bold text-gray-500 my-2">
-        {post.title}
+        {CurrentLanguage=='en'?post.title_en:CurrentLanguage=='fr'?post.title_fr:post.title_ar}
     </h1>
         <div className="w-full  overflow-hidden p-2 lg:p-0">
         <img src={post.Thumb} className='w-full rounded-t-lg shadow-md ' alt="" srcset="" />
@@ -115,7 +117,7 @@ export default function Post(){
         <span className="lg:text-md text-sm w-24 text-gray-500 italic  " >{readingTime(post.description).text}</span>
        </div>
     </div>
-    <div className="lg:mt-8 mt-5 w-[] font-karla text-justify text-md  text-gray-700 lg:pl-0 px-4 pr-lg:px-0 leading-8" dangerouslySetInnerHTML={{__html:post.description}}/>
+    <div className="lg:mt-8 mt-5 w-[] font-karla text-justify text-md  text-gray-700 lg:pl-0 px-4 pr-lg:px-0 leading-8" dangerouslySetInnerHTML={{__html:CurrentLanguage=='en'?post.description_en:CurrentLanguage=='fr'?post.description_fr:post.description_ar}}/>
         
         <div className="w-full h-[1px] bg-gray-500 mb-5 mt-10"></div>
         <div className="w-full flex  items-center justify-between mb-10">

@@ -6,6 +6,8 @@ import HeadingPage from './Elements/HeadingPage';
 import { BsArrowRight, BsEye } from 'react-icons/bs';
 import Divder from './Divider';
 import { MdAdd } from 'react-icons/md';
+import i18next, { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 export default function ProgramsSection(){
     function ThereIsMoreToRead(text){
         if(text.length>400){
@@ -15,10 +17,12 @@ export default function ProgramsSection(){
           return text
         }
     }
+    const {t} = useTranslation()
+    const CurrentLang = i18next.language
     return(
         <div className='w-full pt-5 px-2 mt-20 '>
         <HeadingPage >
-            HOW DO WE HELP 
+            {t("HOW_DO_WE_HELP")}
           </HeadingPage>
           <Divider/>
 
@@ -32,7 +36,7 @@ export default function ProgramsSection(){
                 
                   <div  className=" group w-[22rem] min-h-60  p-4 transform duration-300  relative hover:border hover:bg-[#fcfcfc] hover:rounded-md">
                     <h1 className="text-2xl text-gray-700 font-semibold w-[90%]">
-                      {program.name}
+                      {CurrentLang=='en'?program.title_en:CurrentLang=='fr'?program.title_fr:program.title_ar}
                     </h1>
                     <img  src={program.icon} alt="" />
                     <div className="absolute top-6 right-4">
@@ -40,7 +44,7 @@ export default function ProgramsSection(){
                       <span className='text-2xl text-orange-600 font-mono font-bold hidden'>#{i+1}</span>
                     </div>
                     <p className="text-md text-gray-700 text-opacity-60 mt-4 ">
-                     <div className='' dangerouslySetInnerHTML={{__html:program.intro}}/>
+                     <div className='' dangerouslySetInnerHTML={{__html:CurrentLang=='en'?program.description_en:CurrentLang=='fr'?program.description_fr:program.description_ar}}/>
                    </p>
                   </div>
                 
