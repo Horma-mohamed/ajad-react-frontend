@@ -11,10 +11,11 @@ import Loader from "../../includes/Loader";
 import HeadingPage from "../../includes/Elements/HeadingPage";
 import moment from "moment";
 import { readingTime } from 'reading-time-estimator';
+import i18next from "i18next";
 
 //import Posts from "../../components/Posts";
 export default function Blog(){
-    
+    const CurrentLang = i18next.language
     const [postsData,setPostsData] = useState([])
     const [posts,setPosts] = useState([])
     const [query,setQuery] = useState()
@@ -29,7 +30,7 @@ export default function Blog(){
     useEffect(()=>{
         //fetch("https://abdeli.pythonanywhere.com/api-auth/articls/")
         setLoading(true)
-        fetch(`https://abdeli.pythonanywhere.com/api-auth/articls/1`)
+        fetch(`https://moha4567878.pythonanywhere.com/api-auth/articls/1`)
         .then((res)=>{
             return res.json()
         })
@@ -38,7 +39,7 @@ export default function Blog(){
             setHeadPost(data)
             
         })
-        fetch('https://abdeli.pythonanywhere.com/api-auth/articls/')
+        fetch('https://moha4567878.pythonanywhere.com/api-auth/articls/')
         .then((res)=>{
             return res.json()
         })
@@ -91,13 +92,13 @@ export default function Blog(){
                          <img src={headPost.Thumb} alt="" className="rounded-md w-full lg:w-[600px]" />
                          <div className=" lg:h-full ">
                          <p className="text-gray-400 p-2 space-x-4">
-                             <span>{moment(headPost?.date).format("MMM Do YY") }</span> <span>{ readingTime(headPost.description).text}</span>
+                             <span>{moment(headPost?.date).format("MMM Do YY") }</span> <span>{ readingTime(headPost.description_en).text}</span>
                          </p>
                          <h1 className=" lg:w-[400px] p-2  text-xl lg:text-5xl text-gray-700 font-semibold ">
-                         {headPost.title}
+                         {headPost.title_en}
                          </h1>
                          <p className="lg:w-[400px] text-lg text-gray-400 self- p-2">
-                                 <div dangerouslySetInnerHTML={{__html:Slice(headPost?.description,0,200)}  }   />                     
+                                 <div dangerouslySetInnerHTML={{__html:Slice(headPost?.description_en,0,200)}  }   />                     
                                  </p>
                          </div>
                          </div>

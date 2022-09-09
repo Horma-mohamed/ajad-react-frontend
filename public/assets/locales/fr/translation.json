@@ -1,4 +1,5 @@
 {
+    "AJAD_LOGO_TITLE": "AJAD",
     "AJAD_SHORT_INTRO": "L’organisation non-gouvernementale Association  Jeunesse Action Développement (AJAD) est une  organisation mauritanienne volontaire de développement, à but non-lucratif.  L’AJAD a été créée en 1997 par un groupe de jeunes mauritaniens dans l’objet d’une part de prémunir la jeunesse nationale contre les différentes tentations qui  peuvent les mener vers la débauche et la marginalisation et d’autre part d’amener les jeunes à participer de façon effective et efficace à l’effort de construction nationale par la souscription aux actions de lutte contre la pauvreté, l’insécurité alimentaire et la dégradation des services sociaux (éducation et santé). ",
     "AJAD_HEAD_HERO":"ENGAGÉ POUR AIDER LES GENS",
     "DOWNLOAD_PRESENTATION":"TÉLÉCHARGER LA PRÉSENTATION D'AJAD",
@@ -10,5 +11,16 @@
     "HOW_DO_WE_HELP":"COMMENT AIDONS-NOUS",
     "CASES_FROM_THE_FIELD":"NOUS AVONS FAIT",
     "LATEST_POSTS":"DERNIER POSTS",
-    "WE_HAVE_WORKED_WITH":"NOUS AVONS TRAVAILLÉ AVEC"
+    "WE_HAVE_WORKED_WITH":"NOUS AVONS TRAVAILLÉ AVEC",
+    "FOOTER_DESCRIPTION":"L'organisation non gouvernementale Association Jeunesse Action Développement (AJAD) est une organisation mauritanienne de développement bénévole à but non lucratif. L'AJAD a été créée en 1997 par un groupe de jeunes mauritaniens dans le but de protéger la jeunesse nationale des diverses tentations pouvant la conduire à la débauche et à la marginalisation",
+    "INFORMATION":"Information",
+    "OUR_LOCATION":"Notre emplacement",
+    "CONTACT_US":"Nous contacter",
+    "OUR_PRINCIPLES":"Notre principles",
+    "IN_GOOGLE_MAPS":"Dans Google Maps",
+    "OUR_FACEBOOK_PAGE":"Notre Facebook Page",
+    "OUR_TWITTER":"Notre Twitter ",
+    "CONTACT_PAGE":"Contact page",
+    "SCROLL_TO_THE_TOP":"Faites défiler vers le haut"
+
 }

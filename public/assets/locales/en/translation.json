@@ -1,4 +1,5 @@
 {
+    "AJAD_LOGO_TITLE": "AJAD",
     "AJAD_SHORT_INTRO": "The non-governmental organization Association Jeunesse Action Développement (AJAD) is a Mauritanian non-profit voluntary development organization. AJAD was created in 1997 by a group of young Mauritanians with the aim of protecting the national youth from the various temptations that can lead them to debauchery and marginalization and to bring the youth to participate effectively and efficiently in the national construction effort by subscribing to actions to fight against poverty, food insecurity and the degradation of social services (education and health).",
     "AJAD_HEAD_HERO":"COMMITED FOR HELPING PEOPLE ",
     "DOWNLOAD_PRESENTATION":"DOWNLOAD AJAD' PRESENTATION",
@@ -10,7 +11,16 @@
     "HOW_DO_WE_HELP":"HOW DO WE HELP",
     "CASES_FROM_THE_FIELD":"WE HAVE DONE",
     "LATEST_POSTS":"LATEST POST",
-    "WE_HAVE_WORKED_WITH":"WE HAVE wORKED WITH"
-    
+    "WE_HAVE_WORKED_WITH":"WE HAVE wORKED WITH",
+    "FOOTER_DESCRIPTION":"The non-governmental organization Association Jeunesse Action Développement (AJAD) is a Mauritanian non-profit voluntary development organization. AJAD was created in 1997 by a group of young Mauritanians with the aim of protecting the national youth from the various temptations that can lead them to debauchery and marginalization",
+    "INFORMATION":"Information",
+    "OUR_LOCATION":"Our location",
+    "CONTACT_US":"Contact us",
+    "OUR_PRINCIPLES":"Our principles",
+    "IN_GOOGLE_MAPS":"In Google Maps",
+    "OUR_FACEBOOK_PAGE":"Our Facebook Page",
+    "OUR_TWITTER":"Our Twitter ",
+    "CONTACT_PAGE":"Contact page",
+    "SCROLL_TO_THE_TOP":"Scroll To The Top"
 
 }

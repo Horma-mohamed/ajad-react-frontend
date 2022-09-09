@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next'
 import { BsTwitter, BsYoutube } from 'react-icons/bs'
 import {ImFacebook,ImTwitter,ImYoutube} from 'react-icons/im'
 import { IoIosArrowForward } from 'react-icons/io'
 import Divder from '../includes/Divider'
 export default function Footer(){
+    const {t} = useTranslation()
     const socials = [
         <ImFacebook/>,
         <ImTwitter/>,
@@ -12,15 +14,14 @@ export default function Footer(){
         <div className=" w-full  bg-gray-0 border-  flex justify-center items-center bg-sky- text-gray-500 bg-gray-50 bg-opacity-40 to-transparent p-4">
             <div className="w-[90%] space-y-10  md:flex md:space-y-0 items-center justify-between ">
                 <div className="md:w-4/12  ">
-                        <div className="flex space-x-4 items-center ">
-                        <img className='w-14 mb-5' src="logo.png" alt="" srcset="" />
-                        <h1 className="text-lg font-bold font-karla">AJAD</h1>
+                        <div className=" flex  items-center ">
+                        <img className='w-14 mb-5 mx-2' src="logo.png" alt="" srcset="" />
+                        <h1 className="text-lg mx-2 font-bold font-karla">{t("AJAD_LOGO_TITLE")}</h1>
                         </div>
                         
                         <p className="text-md text-gray-400 mb-6">
-                        (AJAD) is a Mauritanian non-profit voluntary development organization. 
-AJAD was created in 1997 by a group of young Mauritanians with the aim of protecting the national youth from the various temptations that can lead them to debauchery and marginalization                        </p>
-
+                      {t("FOOTER_DESCRIPTION")}
+                      </p>
                         <div className="flex space-x-4">
                             <div className="w-10 h-10 group flex justify-center items-center rounded-full  hover:bg-orange-400 transform duration-300">
                                 <ImFacebook className='text-gray-400 group-hover:text-white'/>
@@ -35,30 +36,27 @@ AJAD was created in 1997 by a group of young Mauritanians with the aim of protec
                         </div>
 
                 </div>
-                <ul className='space-y-10 md:space-y-0 md:flex md:space-x-20 justify--end '>
-                    <li  >
-                        <h1 className="text-xl text-gray-600 font-semibold mb-4">Information</h1>
+                <ul className='space-y-10 md:space-y-0 md:flex s'>
+                    <li className='mx-10'  >
+                        <h1 className="text-xl text-gray-600 font-semibold mb-4">{t("INFORMATION")}</h1>
                         <div className="space-y-2">
                         <div className="flex space-x-0.5 items-center">
                             <IoIosArrowForward className='text-[14px]' />
-                        <a href='/'  className="text-gray-600 text-sm">Our principles</a>
+                        <a href='/'  className="text-gray-600 text-sm">{t("OUR_PRINCIPLES")} </a>
                         </div>
                         <div className="flex space-x-0.5 items-center">
                             <IoIosArrowForward className='text-[14px]' />
-                        <a href='/'  className="text-gray-600 text-sm">Our parnters</a>
+                        <a href='/'  className="text-gray-600 text-sm"></a>
                         </div>
-                        <div className="flex space-x-0.5 items-center">
-                            <IoIosArrowForward className='text-[14px]' />
-                        <a href='/'  className="text-gray-600 text-sm">Locations</a>
-                        </div>
+                        
                         </div>
                     </li>
-                    <li  >
-                        <h1 className="text-xl text-gray-600 font-semibold mb-4">Our location</h1>
+                    <li className='mx-10'  >
+                        <h1 className="text-xl text-gray-600 font-semibold mb-4">{t("OUR_LOCATION")}</h1>
                         <div className="space-y-2">
                         <div className="flex space-x-0.5 items-center">
                             <IoIosArrowForward className='text-[14px]' />
-                        <a href='/'  className="text-gray-600 text-sm">In Google Maps</a>
+                        <a href='/'  className="text-gray-600 text-sm">{t("IN_GOOGLE_MAPS")} </a>
                         </div>
                         <div className="flex space-x-0.5 items-center hidden ">
                             <IoIosArrowForward className='text-[14px]' />
@@ -70,20 +68,20 @@ AJAD was created in 1997 by a group of young Mauritanians with the aim of protec
                         </div>
                         </div>
                     </li>
-                    <li  >
-                        <h1 className="text-xl text-gray-600 font-semibold mb-4">Contact us</h1>
+                    <li className='mx-10'  >
+                        <h1 className="text-xl text-gray-600 font-semibold mb-4">{t("CONTACT_US")} </h1>
                         <div className="space-y-2">
                         <div className="flex space-x-0.5 items-center">
                             <IoIosArrowForward className='text-[14px]' />
-                        <a href='/'  className="text-gray-600 text-sm">Our Facebook Page</a>
+                        <a href='/'  className="text-gray-600 text-sm">{t("OUR_FACEBOOK_PAGE")} </a>
                         </div>
                         <div className="flex space-x-0.5 items-center">
                             <IoIosArrowForward className='text-[14px]' />
-                        <a href='/'  className="text-gray-600 text-sm">Our Twitter </a>
+                        <a href='/'  className="text-gray-600 text-sm">{t("OUR_TWITTER")} </a>
                         </div>
                         <div className="flex space-x-0.5 items-center">
                             <IoIosArrowForward className='text-[14px]' />
-                        <a href='/'  className="text-gray-600 text-sm">Contact Page</a>
+                        <a href='/'  className="text-gray-600 text-sm">{t("CONTACT_PAGE")} </a>
                         </div>
                         </div>
                     </li>
