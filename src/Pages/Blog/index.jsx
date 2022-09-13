@@ -12,6 +12,10 @@ import HeadingPage from "../../includes/Elements/HeadingPage";
 import moment from "moment";
 import { readingTime } from 'reading-time-estimator';
 import i18next from "i18next";
+import { useTranslation } from "react-i18next";
+import { formatDistance } from "date-fns";
+import { ar, arSA, enUS, fr } from "date-fns/locale";
+import { Suspense } from "react";
 
 //import Posts from "../../components/Posts";
 export default function Blog(){
@@ -20,7 +24,8 @@ export default function Blog(){
     const [posts,setPosts] = useState([])
     const [query,setQuery] = useState()
     const [loading,setLoading] = useState(false)
-    const [headPost,setHeadPost] = useState({})
+    const [Featured,setFeatured] = useState({})
+    const locale = CurrentLang=='en'?enUS:CurrentLang=='fr'?fr:arSA
   
     const searchBtn = document.getElementById('search-btn')
     const searchIcon = document.getElementById('search-icon')
@@ -36,7 +41,7 @@ export default function Blog(){
         })
         .then((data)=>{
             
-            setHeadPost(data)
+            setFeatured(data)
             
         })
         fetch('https://moha4567878.pythonanywhere.com/api-auth/articls/')
@@ -45,22 +50,23 @@ export default function Blog(){
         })
         .then((data)=>{
             
-            setPostsData(data.slice(0,20))
+            // setPostsData(data.slice(0,20))
             setLoading(false)
             setPosts(data.slice(0,20))
-            console.log(data)
+            // console.log(data)
         })
 
     },[])
-    useEffect(()=>{
-        if(query==''){
-            setPosts(postsData)
-        }
-    },[query])
-    function search(query){
-        var filtredPosts = postsData.filter((post)=>post.title.includes(query))
-        setPosts(filtredPosts)
-    }
+    // useEffect(()=>{
+    //     if(query==''){
+    //         setPosts(postsData)
+    //     }
+    // },[query])
+    // function search(query){
+    //     var filtredPosts = postsData.filter((post)=>post.title.includes(query))
+    //     setPosts(filtredPosts)
+    // }
+    const {t} = useTranslation()
     function Slice(text,start,end){
             return text?.slice(start,end)
     }
@@ -73,37 +79,29 @@ export default function Blog(){
             <div className="w-full flex justify-center min-h-screen">
 
                 <div className="w-[90%] lg:w-[90%] min-h-screen bg-gray50 mt-5">
-                <div className="w-full hidden h-[80vh] ">
-                  
-                  <h1 className="text-5xl  text-gray-600 font-semibold mb-14 mt-5">
-                       Insights , Charity Donations , Educaton , Social Security
-                    </h1>
-                    <p className="text-[18px] font-normal leading-[35px] text-justify text-gray-500 w-2/3 font-sans ">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quasi natus cum iure iusto, nemo animi! Dolorum sed dolore ad.
-                    </p>
-                 
-                </div>
-                      
+              
                  <div className="w-full pl-5 mt-6">
-                    <h1 className="text-xl text-gray-600 font-bold pl-4 uppercase my-2">Featured</h1>
-                     {
-                        headPost?<NavLink to={`/blog/${headPost.id}`}>
+                    <h1 className="text-xl text-gray-600 font-bold pl-4 uppercase my-2">{t("FEATURED")}</h1>
+                     
+                       
+                           { Featured?<NavLink to={`/blog/${Featured.id}`}>
                         <div className=" w-full h-[450px] bg-gray-00 p-4 lg:flex lg:space-x-4 lg:mb-0 mb-4 ">
-                         <img src={headPost.Thumb} alt="" className="rounded-md w-full lg:w-[600px]" />
-                         <div className=" lg:h-full ">
+                         <img src={Featured.Thumb} alt="" className="rounded-md w-full lg:w-[600px]" />
+                         <div className=" lg:h-full  p-3">
                          <p className="text-gray-400 p-2 space-x-4">
-                             <span>{moment(headPost?.date).format("MMM Do YY") }</span> <span>{ readingTime(headPost.description_en).text}</span>
+                         <span>{formatDistance(new Date(Featured?.date),new Date(),{locale:locale})}</span>  <span>{ readingTime(Featured.description_en).text}</span>
                          </p>
                          <h1 className=" lg:w-[400px] p-2  text-xl lg:text-5xl text-gray-700 font-semibold ">
-                         {headPost.title_en}
+                         {CurrentLang=='en'?Featured.title_en:CurrentLang=='fr'?Featured.title_fr:Featured.title_ar}
                          </h1>
-                         <p className="lg:w-[400px] text-lg text-gray-400 self- p-2">
-                                 <div dangerouslySetInnerHTML={{__html:Slice(headPost?.description_en,0,200)}  }   />                     
+                         <p className="lg:w-[400px] text-lg text-gray-400 self- my-4">
+                                 <div dangerouslySetInnerHTML={{__html:Slice(CurrentLang=='en'?Featured.description_en:CurrentLang=='fr'?Featured.description_fr:Featured.description_ar,0,200)}  }   />                     
                                  </p>
                          </div>
                          </div>
-                        </NavLink>:''
-                     }
+                        </NavLink>:'' }
+                        
+                    
                        <Divder h='20'/>
                        <h1 className="text-xl text-gray-600 font-bold pl-4 uppercase my-2">INTRESTING TOPICS</h1>
                    <div className="flex  w-full flex-wrap gap-4 gap-y-10">   
@@ -117,7 +115,7 @@ export default function Blog(){
                     
                         {
                             
-                                posts.map((post,i)=>(post.id!=headPost.id?<Posts post={post} />:''))
+                                posts.map((post,i)=>(post.id!=Featured.id?<Posts post={post} />:''))
                            
                         }
                     

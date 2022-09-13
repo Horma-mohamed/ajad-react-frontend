@@ -17,15 +17,18 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {motion} from 'framer-motion'
 import ScrollToUp from './includes/Elements/ScrollToUP';
+import {Suspense} from 'react'
 import GoogleTranslate from './includes/Elements/GoogleTranslate';
+import Loader from './includes/Loader';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //root.classList.add('w-screen overflow-x-hidden')
 root.render(
   
- <>
-
+ 
+     
       <BrowserRouter> 
       {/* <Header/> */}
+      <  >
       <ScrollToUp/>
       <GoogleTranslate/>
   <Routes>
@@ -42,9 +45,10 @@ root.render(
     <Route path='/page' exact element={<Page2/>} />
   {/* <Footer/> */}
   </Routes>
+  </>
   </BrowserRouter>
 
- </>
+ 
  
 
 
