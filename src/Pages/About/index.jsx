@@ -12,7 +12,7 @@ export default function About(){
         <div className="w-screen overflow-hidden   ">
             <Header page={'about'}/>
             <div className="w-full min-h-screen bg-gray-0  bg-gray-00 p-4 md:p-0" >
-                <div className="w-full flex  lg:ml-60 ml-4 ">
+                <div className={`w-full flex ${document.dir=='rtl'?'lg:mr-60':'lg:ml-60'} lg:ml-60 ml-4 `}>
                     <div className="lg:w-1/2 w-[90%] ">
                         <Divder/>
                         <HeadingPage  >{t("ABOUT")}</HeadingPage>

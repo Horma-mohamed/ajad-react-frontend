@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import HeadingPage from "../../includes/Elements/HeadingPage";
 import Loader from "../../includes/Loader";
+import { useTranslation } from "react-i18next";
 
 export default function Gallery(){
     const [data,setData]=useState([])
@@ -17,6 +18,7 @@ export default function Gallery(){
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const {t} = useTranslation()
 
     useEffect(()=>{
         setLoading(true)
@@ -116,15 +118,15 @@ export default function Gallery(){
                         <span className="lg:text-2xl text-lg  font-semibold font-sans  text-gray-700">GALLERY</span>
                     </HeadingPage> */}
                     <div className="w-full flex justify-center">
-                    <ul className="flex w-full lg:w-1/2 mt-10 space-x-4 lg:space-x-14 px-2 py-4  justify-center bg-gray-50  shadow-md rounded-full">
-                        <li id='galleryfilter' onClick={()=>galleryFilterFunction('')} className="  flex space-x-4 md:text-[17px] rounded-lg text-md text-orange-400  cursor-pointer py-[6px] px-[14px] border  border-orange-400  font-semibold hover:shadow-lg hover:bg-gray-100 ">
-                            <span>ALL</span>
+                    <ul className="flex w-full lg:w-1/2 mt-10  px-2 py-4  justify-center bg-gray-50  shadow-md rounded-full">
+                        <li id='galleryfilter' onClick={()=>galleryFilterFunction('')} className="  flex lg:mx-7 mx-2 space-x-4 md:text-[17px] rounded-lg text-md text-orange-400  cursor-pointer py-[6px] px-[14px] border  border-orange-400  font-semibold hover:shadow-lg hover:bg-gray-100 ">
+                            <span>{t("ALL")}</span>
                         </li>
-                        <li id='galleryfilter' onClick={()=>galleryFilterFunction('Image')} className=" flex space-x-2 items-center md:text-[17px] rounded-lg text-md text-gray-600 font-semibold hover:shadow-lg hover:bg-gray-100 cursor-pointer py-[6px] px-[14px]  ">
-                        <BiImage/><span>IMAGES</span>
+                        <li id='galleryfilter' onClick={()=>galleryFilterFunction('Image')} className=" flex lg:mx-7 mx-2 space-x-2 items-center md:text-[17px] rounded-lg text-md text-gray-600 font-semibold hover:shadow-lg hover:bg-gray-100 cursor-pointer py-[6px] px-[14px]  ">
+                        <BiImage/><span>{t("IMAGES")}</span>
                         </li>
-                        <li id='galleryfilter' onClick={()=>galleryFilterFunction('Video')} className=" flex space-x-2 items-center md:text-[17px] rounded-lg text-md text-gray-600 font-semibold hover:shadow-lg hover:bg-gray-100 cursor-pointer py-[6px] px-[14px]  ">
-                           <BiVideo/> <span>VIDEOS</span>
+                        <li id='galleryfilter' onClick={()=>galleryFilterFunction('Video')} className=" flex lg:mx-7 mx-2 space-x-2 items-center md:text-[17px] rounded-lg text-md text-gray-600 font-semibold hover:shadow-lg hover:bg-gray-100 cursor-pointer py-[6px] px-[14px]  ">
+                           <BiVideo/> <span>{t("VIDEOS")}</span>
                         </li>
                         <li id='galleryfilter' onClick={()=>galleryFilterFunction('Documents')} className=" md:text-[17px] rounded-lg text-md text-gray-600 font-semibold hover:shadow-lg hover:bg-gray-100 hidden cursor-pointer py-[6px] px-[14px]  gl">
                             DOCUMENTS

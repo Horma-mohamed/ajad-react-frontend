@@ -9,6 +9,7 @@ import HeadingPage from "../../includes/Elements/HeadingPage";
 import emailjs from '@emailjs/browser';
 import { BsMap } from "react-icons/bs";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Contact(){
     const email = useRef()
@@ -60,6 +61,7 @@ export default function Contact(){
 
         
     }
+    const {t} = useTranslation()
     return(
         <div className=" w-screen min-h-screen overflow-x-hidden ">
             <Header page='contact'/>
@@ -72,7 +74,7 @@ export default function Contact(){
                        
                         <div className=" w-full px- mb-10 ">
                         <HeadingPage >
-                        STAY IN TOUCH
+                        {t("STAY_IN_TOUCH")}
                     </HeadingPage>
                         
                         <div className="w-full ">
@@ -102,11 +104,11 @@ export default function Contact(){
 
                             <form ref={ContactForm} onSubmit={sendMessage} className="w-full space-y-4 relative"  >
                             
-                                <input ref={email}  type="email"  placeholder="Email"name="user_email" className="w-full h-14 rounded-md bg-gray-50 pl-3 outline-orange-400 " />
-                                <input ref={subject} type="text" placeholder="Subject" name="subject" className="w-full h-14 rounded-md bg-gray-50 pl-3 outline-orange-400 " /> 
-                                <textarea ref={message} name="message" id="" placeholder="Message"className="w-full p-2 h-52 rounded-md bg-gray-50 pl-3 outline-orange-400" ></textarea>
+                                <input ref={email}  type="email"  placeholder={t("EMAIL")} name="user_email" className="w-full h-14 rounded-md bg-gray-50 px-3 outline-orange-400 " />
+                                <input ref={subject} type="text" placeholder={t("SUBJECT")} name="subject" className="w-full h-14 rounded-md bg-gray-50 px-3 outline-orange-400 " /> 
+                                <textarea ref={message} name="message" id="" placeholder={t("MESSAGE")} className="w-full p-2 h-52 rounded-md bg-gray-50 px-3 outline-orange-400" ></textarea>
                                 <button type="submit"  className=" float-right rounded-md  shadow-xl  transform duration-500  p-4 flex justify-center items-center space-x-4 text-white  bg-orange-400  mb-20 lg:mb-0 ">
-                                    <span>Send</span> <MdSend className=""/>
+                                    <span>{ t("SEND") }</span> <MdSend className=""/>
                                 </button>
                             </form>
                             
