@@ -1,3 +1,4 @@
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import programs from "../../api/programs";
 import Footer from "../../components/Footer";
@@ -8,6 +9,7 @@ import HeadingPage from "../../includes/Elements/HeadingPage";
 
 export default function About(){
     const {t} = useTranslation()
+    const CurrentLang = i18next.language
     return(
         <div className="w-screen overflow-hidden   ">
             <Header page={'about'}/>
@@ -28,9 +30,9 @@ export default function About(){
                             {
                                 programs().map((program)=>(
                                     <li>
-                                        <h1 className="text-lg font-bold ml-3  text-gray-600 relative before:absolute before:top-3 before:-left-3  before:w-2 before:h-2 before:rounded-full before:bg-orange-500">{program.name}</h1>
+                                        <h1 className={`text-lg font-bold ml-3  text-gray-600 relative before:absolute before:top-3 ${document.dir=='rtl'?'before:-right-3':'before:-left-3'}  before:w-2 before:h-2 before:rounded-full before:bg-orange-500`} >{CurrentLang=='en'?program.title_en:CurrentLang=='fr'?program.title_fr:program.title_ar}</h1>
                         <p className="font-karla mt-6 text-[#282523] text-justify text-lg px-4 lg:px-4 ">
-                            <div dangerouslySetInnerHTML={{__html:program.description}}/>
+                            <div dangerouslySetInnerHTML={{__html:CurrentLang=='en'?program.description_en:CurrentLang=='fr'?program.description_fr:program.description_ar}}/>
                         </p>
                                     </li>
                                 ))

@@ -37,6 +37,9 @@ export default function Gallery(){
             
             //console.log(data)
         })
+        setTimeout(() => {
+            setLoading(true)
+        }, 7);
     },[])
     const [gallery,setGallery]=useState(data)
     function galleryFilterFunction(type) {

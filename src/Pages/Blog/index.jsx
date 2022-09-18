@@ -33,17 +33,6 @@ export default function Blog(){
     //     searchIcon.style.transform= `translate3d(${e.clientX}px,${e.clientY}px,0)`
     // })
     useEffect(()=>{
-        //fetch("https://abdeli.pythonanywhere.com/api-auth/articls/")
-        setLoading(true)
-        fetch(`https://moha4567878.pythonanywhere.com/api-auth/articls/1`)
-        .then((res)=>{
-            return res.json()
-        })
-        .then((data)=>{
-            
-            setFeatured(data)
-            
-        })
         fetch('https://moha4567878.pythonanywhere.com/api-auth/articls/')
         .then((res)=>{
             return res.json()
@@ -53,6 +42,8 @@ export default function Blog(){
             // setPostsData(data.slice(0,20))
             setLoading(false)
             setPosts(data.slice(0,20))
+            console.log(posts.filter((post)=>post?.featured==true))
+            setFeatured(posts.filter((post)=>post?.featured==true)[0])
             // console.log(data)
         })
 
@@ -84,12 +75,12 @@ export default function Blog(){
                     <h1 className="text-xl text-gray-600 font-bold pl-4 uppercase my-2">{t("FEATURED")}</h1>
                      
                        
-                           { Featured?<NavLink to={`/blog/${Featured.id}`}>
+                           { Featured?<NavLink to={`/blog/${Featured?.id}`}>
                         <div className=" w-full h-[450px] bg-gray-00 p-4 lg:flex lg:space-x-4 lg:mb-0 mb-4 ">
                          <img src={Featured.Thumb} alt="" className="rounded-md w-full lg:w-[600px]" />
                          <div className=" lg:h-full  p-3">
                          <p className="text-gray-400 p-2 space-x-4">
-                         <span>{formatDistance(new Date(Featured?.date),new Date(),{locale:locale})}</span>  <span>{ readingTime(Featured.description_en).text}</span>
+                         <span>{ readingTime(Featured.description_en).text}</span>
                          </p>
                          <h1 className=" lg:w-[400px] p-2  text-xl lg:text-5xl text-gray-700 font-semibold ">
                          {CurrentLang=='en'?Featured.title_en:CurrentLang=='fr'?Featured.title_fr:Featured.title_ar}
